@@ -3,6 +3,8 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+orbs:
+  aws-s3: circleci/aws-s3@1.0.11
 jobs:
   build:
     docker:
@@ -35,3 +37,42 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - repo 
+
+  copy-env:
+    docker:
+      - image: circleci/node:8.12.0
+    
+    steps:
+      - attach_workspace:
+        at: /tmp/workspace
+      
+      run: ls
+
+  test:
+    docker:
+      - image: circleci/node:8.12.0
+    
+    steps:
+      - attach_workspace:
+        at: /tmp/workspace
+      
+      run: ls
+    
+
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - copy-env:
+        requires:
+          build
+      - test:
+        requires:
+          build
