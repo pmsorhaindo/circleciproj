@@ -41,7 +41,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - /home/circleci/repo
+            - ./home/circleci/repo
 
 workflows:
   version: 2
