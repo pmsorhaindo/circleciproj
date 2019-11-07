@@ -72,7 +72,7 @@ workflows:
       - build
       - copy-env:
         requires:
-          build
+          - build
       - test:
         requires:
-          build
+          - build
