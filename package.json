@@ -1,0 +1,15 @@
+{
+  "name": "circleciproj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pmsorhaindo/circleciproj.git",
+  "author": "Michael Sorhaindo <michael@exmachina.nl>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
