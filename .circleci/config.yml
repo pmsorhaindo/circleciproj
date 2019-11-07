@@ -64,9 +64,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - copy-env:
+      - copy-env
         requires:
           - build
-      - test:
+      - test
         requires:
           - build
