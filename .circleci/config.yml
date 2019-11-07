@@ -43,20 +43,8 @@ jobs:
           paths:
             - repo 
 
-  copy-env:
-    docker:
-      - image: circleci/node:8.12.0
-    
-    steps:
-      - run: ls
-    
-
-
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - copy-env:
-        requires:
-          - build
