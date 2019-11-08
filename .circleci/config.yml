@@ -47,7 +47,8 @@ jobs:
 
     steps:
       - attach_workspace:
-        at: /home/circleci/repo
+          # must be an absolute path or path from working_directory.
+          at: /home/circleci/repo
       - run: pwd
       - run: ls
 
